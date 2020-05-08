@@ -1,0 +1,3 @@
+# in-browser-secrets-playground
+
+nothing to see here...
