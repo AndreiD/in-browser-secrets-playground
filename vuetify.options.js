@@ -1,22 +1,18 @@
 import colors from "vuetify/es5/util/colors";
 
-// blackish background: #231F20
-// yellow: #fdb914
-// white: #F2F2F2
-
 export default {
   theme: {
-    dark: false,
+    dark: true,
     themes: {
-      light: {
-        primary: '#F2F2F2',
-        secondary: '#fdb914',
+      dark: {
+        primary: '#69aaf0',
+        secondary: colors.indigo.darken4,
         secondaryLight: colors.indigo.lighten2,
         third: colors.teal.darken1,
         thirdLight: colors.teal.lighten1,
         grey: colors.grey.darken1,
         red: colors.red.lighten2,
-        accent: '#fdb914',
+        accent: '#82B1FF',
         error: '#ff4444',
         info: '#33b5e5',
         success: '#00C851',

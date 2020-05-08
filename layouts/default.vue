@@ -1,23 +1,21 @@
 <template>
-  <v-app>
-    <v-app-bar flat fixed clipped-left app color="#231F20">
+  <v-app style="background: #12171a;">
+    <v-app-bar flat fixed clipped-left app color="#263238" dark>
       <v-toolbar-title style="width: 550px" class="ml-0 pl-4">
         <nuxt-link style="text-decoration:none" to="/">
-          <span class="display-1">Encryption Playground</span>
+          <span class="display-1" style="color:#FFF; font-weight: bold">ETH</span>
+          <span class="display-1" style="color:#ff5722">Playground</span>
         </nuxt-link>
       </v-toolbar-title>
       <div class="flex-grow-1"></div>
-      <span>
-        <kbd class="title red">TESTING</kbd>
-      </span>
     </v-app-bar>
     <v-content v-cloak>
       <Nuxt />
     </v-content>
-    <v-footer dark app>
+    <v-footer color="#263238" dark app>
       <a
         disabled
-        style="text-decoration: none;"
+        style="text-decoration: none;  color: #b0bec5"
         text
         href="https://github.com/AndreiD?"
       >andrei &copy; 2020</a>

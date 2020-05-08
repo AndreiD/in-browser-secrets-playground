@@ -30,7 +30,7 @@
             <p style="color: #78909c" class="text-xs-center">or access existing</p>
           </v-row>
 
-          <v-form v-if="!accountPresent" @submit.prevent="toWallet">
+          <v-form v-if="!mnemonicPresent" @submit.prevent="toWallet">
             <v-row justify="center">
               <v-col cols="12" md="7" sm="6">
                 <v-text-field
@@ -59,7 +59,7 @@
             </v-row>
           </v-form>
 
-          <v-form v-if="accountPresent" @submit.prevent="unlockWallet">
+          <v-form v-if="mnemonicPresent" @submit.prevent="unlockWallet">
             <v-row justify="center">
               <v-col cols="12" md="7" sm="6">
                 <v-text-field
@@ -90,19 +90,19 @@ var CryptoJS = require("crypto-js");
 export default {
   data() {
     return {
+      mnemonic: "",
       password: "",
       existingPassword: "",
-      accountPresent: false,
-      isMounted: false,
-      mnemonic: null
+      mnemonicPresent: false,
+      isMounted: false
     };
   },
   mounted() {
     this.isMounted = true;
-    if (Object.prototype.hasOwnProperty.call(localStorage, "user_id")) {
-      this.accountPresent = true;
+    if (Object.prototype.hasOwnProperty.call(localStorage, "privateKey")) {
+      this.mnemonicPresent = true;
     } else {
-      this.accountPresent = false;
+      this.mnemonicPresent = false;
     }
   },
   methods: {
@@ -112,6 +112,17 @@ export default {
         this.$toast.error("invalid mnemonic length");
         return;
       }
+      // var ciphertext = CryptoJS.AES.encrypt(
+      //   this.mnemonic,
+      //   this.password
+      // ).toString();
+      // let seed = mnemonicToSeed(this.mnemonic, this.password);
+      // var privateKey = hdkey
+      //   .fromMasterSeed(seed)
+      //   .derivePath(`m/44'/60'/0'/0/0`)
+      //   .getWallet()
+      //   .getPrivateKey();
+      // localStorage.setItem("privateKeyPlain", privateKey.toString("hex"));
       this.$router.push("wallet");
     },
     // unlocks an existing wallet
